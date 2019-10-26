@@ -1,0 +1,102 @@
+<div class="container mt-5">
+    <table class="table table-bordered table-light table-striped">
+        <thead class="thead thead-light">
+            <tr>
+                <th>Book Id</th>
+                <th>Book Name</th>
+                <th>First Author</th>
+                <th>Second Author</th>
+                <th>Publisher</th>
+                <th>Year Of publication</th>
+                <!-- <th>Update</th>
+                <th>Delete</th> -->
+                <th>Request</th>
+                <th>Return</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!--for of is used to iterate objects-->
+            <tr *ngFor="let book of BookService.books">
+                <td>{{book.bookId}}</td>
+                <td>{{book.bookName}}</td>
+                <td>{{book.author1}}</td>
+                <td>{{book.author2}}</td>
+                <td>{{book.publisher}}</td>
+                <td>{{book.yearOdpublication}}</td>
+                <td>
+                    <!--used to view all the records in the form in which we make changes  using selectBook() which takes book id as parameter-->
+                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal"
+                        data-target="#exampleModal" (click)="selectBook(book)">Update</button>
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+
+                                <div class="modal-header">
+                                    <h5 class="modal-title text-center" id="exampleModalLabel">Update Book Detail
+                                    </h5>
+                                    <!--callGetData() to update the records when close button is press-->
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                                        (click)="callGetData()">
+                                         <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+
+                                <div class="modal-body mb-3">
+                                    <!--updateBook method called-->
+                                    <form #updateCustomerForm='ngForm' (ngSubmit)="updateBook(updateBookForm)">
+
+                                        <!--selectedBook is used to fetch data from key and value pair , its not a method-->
+                                        <input type="hidden" name="eid" #eid="ngModel"
+                                            [(ngModel)]='selectedBook.eid'>
+
+
+                                        <label for="id"> Book Id</label>
+                                        <input type="text" name="id" id="id" class="form-control mb-3" #id='ngModel'
+                                            [(ngModel)]='selectedBook.bookId' placeholder="Enter book id">
+
+
+                                        <label for="name">Book Name</label>
+                                        <input type="text" name="name" id="name" class="form-control mb-3"
+                                            #name='ngModel' [(ngModel)]='selectedBook.bookName'
+                                            placeholder="Enter book name">
+
+                                        <label for="author1">First Author</label>
+                                        <input type="text" name="author1" id="author1" class="form-control mb-3"
+                                            #contact='ngModel' [(ngModel)]='selectedBook.author1'
+                                            placeholder="Enter First Author">
+
+                                        <label for="author2">Second Author</label>
+                                        <input type="text" name="author2" id="author2" class="form-control mb-3"
+                                            #type='ngModel' [(ngModel)]='selectedBook.author2'
+                                            placeholder="Enter  Second Author name">
+
+                                        <label for="publisher">Publisher</label>
+                                        <input type="publisher" name="publisher" id="publisher" class="form-control mb-3"
+                                            #email='ngModel' [(ngModel)]='selectedBook.publisher'
+                                            placeholder="Enter   publisher name">
+
+                                            <label for="year">Year Of Publication</label>
+                                            <input type="text" name="year" id="year" class="form-control mb-3"
+                                                #email='ngModel' [(ngModel)]='selectedCustomer.yearOdpublication'
+                                                placeholder="Enter year">
+
+                                        <div class="btn-group">
+                                            <button type="submit" class="btn btn-outline-primary">Submit</button>
+                                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </td>
+                <td>
+                    <!--call delete method to delete book record from the table-->
+                    <button type="button" class="btn btn-outline-danger"
+                        (click)="deleteBooks">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

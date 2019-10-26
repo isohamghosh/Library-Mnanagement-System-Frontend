@@ -1,1 +1,5 @@
-/* You can add global styles to this file, and also import other style files */
+body{
+    background-image:url("https://cdn.pixabay.com/photo/2015/09/04/23/04/library-922998__340.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}

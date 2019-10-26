@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-sm navbar-light bg-info">
+    <a class="navbar-brand" href="#">Library Management System</a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="collapsibleNavId">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item active">
+                <a class="nav-link" routerLink="/">Home</a>
+            </li>
+            <li class="nav-item active" *ngIf="isLibrarianLogin">
+                <a class="nav-link" routerLink="/get-all-books">List Of Books</a>
+            </li>
+            <li class="nav-item active" *ngIf="isLibrarianLogin">
+                <a class="nav-link" routerLink="/add-books">Add Books</a>
+            </li>
+            <li class="nav-item active" *ngIf="isAdminLogin">
+                <a class="nav-link" routerLink="/add-librarien">Add Librarian</a>
+            </li>
+            <li class="nav-item active" *ngIf="isLibrarianLogin">
+                <a class="nav-link" routerLink="/add-student">Add Student</a>
+            </li>
+        </ul>
+        <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search Book">
+            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+        </form> -->
+     
+    </div>
+    <div>
+        <ul class="navbar-nav mt-2 ">
+            <li class="nav-item active" *ngIf="!isAdminLogin && !isOwnerLogin && !isCustomerLogin">
+                <a class="nav-link float-left text-light" routerLink="login">SignIn </a>
+            </li>
+            <li class="nav-item active" *ngIf="!isAdminLogin && !isOwnerLogin && !isCustomerLogin">
+                <a class="nav-link text-light" routerLink="login">Sign Out </a>
+            </li>
+        </ul>
+    </div>
+</nav>

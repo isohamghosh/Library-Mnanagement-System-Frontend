@@ -1,0 +1,24 @@
+<div class="col-md-5 offset-md-4 mt-5 card float-left" style="background-color:transparent;">
+    <form>
+        <h4 class="text-light" align="center">Please Login here...!!!</h4>
+        <h6 class="text-danger float-right">*Required Fields</h6>
+        <div class="form-group">
+            <label for="userId" class="text-light">User Id</label>
+            <input type="number" #userId="ngModel" ngModel name="userId" id="userId" class="form-control" required
+                placeholder="Enter User Id">
+            <div *ngIf="userId.touched && userId.invalid">
+                <p class="alert alert-danger"> *This field is required</p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="password" class="text-light">User Password
+            </label>
+            <input type="password" name="userPassword" id="userPassword" #userPassword="ngModel" ngModel
+                class="form-control" required placeholder="Enter User Password">
+            <div *ngIf="userPassword.touched && userPassword.invalid">
+                <p class="alert alert-danger"> This field is required</p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary float-right" [disabled]="login.invalid">Login </button>
+    </form>
+</div>
