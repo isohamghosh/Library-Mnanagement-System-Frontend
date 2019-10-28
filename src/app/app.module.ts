@@ -13,9 +13,6 @@ import { HttpClientModule} from '@angular/common/http';
 import { AddBooksComponent } from './add-books/add-books.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddUserComponent } from './add-user/add-user.component';
-import { UpdateBookComponent } from './update-book/update-book.component';
-import { DeleteBookComponent } from './delete-book/delete-book.component';
-import { BookRequestComponent } from './book-request/book-request.component';
 import { SearchBookComponent } from './search-book/search-book.component';
 import { RequestedBookComponent } from './requested-book/requested-book.component';
 import { ResponseBookComponent } from './response-book/response-book.component';
@@ -31,9 +28,6 @@ import { SearchUserComponent } from './search-user/search-user.component';
     AddBooksComponent,
     PageNotFoundComponent,
     AddUserComponent,
-    UpdateBookComponent,
-    DeleteBookComponent,
-    BookRequestComponent,
     SearchBookComponent,
     RequestedBookComponent,
     ResponseBookComponent,

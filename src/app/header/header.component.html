@@ -15,41 +15,32 @@
             <li class="nav-item active" *ngIf="isALoggedIn">
                 <a class="nav-link font-weight-bolder" routerLink="/addUser">Add Librarian</a>
             </li>
-    
             <li class="nav-item active" *ngIf="isALoggedIn">
                 <a class="nav-link font-weight-bolder" routerLink="/searchUser">Search Librarian</a>
             </li>
-
+            <!-- Librarian -->
             <li class="nav-item active" *ngIf="isLLoggedIn">
                 <a class="nav-link font-weight-bolder" routerLink="/addUser">Add Student</a>
             </li>
             <li class="nav-item active" *ngIf="isLLoggedIn">
                 <a class="nav-link font-weight-bolder" routerLink="/searchUser">Search Student</a>
             </li>
-            
             <li class="nav-item active" *ngIf="isLLoggedIn">
                 <a class="nav-link font-weight-bolder" routerLink="/addBook">Add Book</a>
             </li>
-            <li class="nav-item active" *ngIf="isLLoggedIn">
-                <a class="nav-link font-weight-bolder" routerLink="/updateBook">Update Book</a>
-            </li>
-            <li class="nav-item active" *ngIf="isLLoggedIn">
-                <a class="nav-link font-weight-bolder" routerLink="/deleteBook">Delete Book</a>
-            </li>
-            <li class="nav-item active" *ngIf="isLLoggedIn">
-                <a class="nav-link font-weight-bolder" routerLink="/requestBook">Requeste Book</a>
-            </li>
-
-            <li class="nav-item active" *ngIf="isSLoggedIn">
+            <li class="nav-item active" *ngIf="isLLoggedIn || isSLoggedIn">
                 <a class="nav-link font-weight-bolder" routerLink="/searchBook">Search Book</a>
             </li>
+            <li class="nav-item active" *ngIf="isLLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/requestedBook">Requested Book</a>
+            </li>
+            <!--  student -->
             <li class="nav-item active" *ngIf="isSLoggedIn">
                 <a class="nav-link font-weight-bolder" routerLink="/requestedBook">Requested Book</a>
             </li>
             <li class="nav-item active" *ngIf="isSLoggedIn">
-                <a class="nav-link font-weight-bolder" routerLink="/responseBook">Response Book</a>
+                <a class="nav-link font-weight-bolder" routerLink="/responseBook">Allocated Book</a>
             </li>
-
         </ul>
         <ul class="navbar-nav ml-auto mt-2 mt-lg-2">
             <li class="nav-item active" *ngIf="!isALoggedIn && !isLLoggedIn && !isSLoggedIn">

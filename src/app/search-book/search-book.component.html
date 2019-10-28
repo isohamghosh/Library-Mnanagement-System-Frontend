@@ -1,1 +1,130 @@
-<p>search-book works!</p>
+<div>
+    <div class="card  text-black">
+      <img class="card-img" src="https://cdn.pixabay.com/photo/2017/07/18/23/40/group-2517459_960_720.png" alt="Card image"
+        style="border-style: none; border-width: 0px">
+      <div class="card-img-overlay">
+  
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h4 class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
+                style="background-image: url(https://image.shutterstock.com/image-photo/black-cracked-texture-can-be-260nw-263213627.jpg); color: rgb(241, 229, 236);">
+                Book Details</h4>
+              <div class="container ">
+                <table class="table table-bordered mt-2 table-hover table-striped"
+                  style="border-style: solid; border-width: 1px;">
+                  <thead
+                    style="background-image: url(https://cdn.pixabay.com/photo/2014/08/11/11/50/full-moon-415501__340.jpg);">
+                    <tr class="text-center text-warning">
+                      <th>Book Id</th>
+                      <th>Book Name</th>
+                      <th>Author1</th>
+                      <th>Author2</th>
+                      <th>Publisher</th>
+                      <th>Year Of Publication</th>
+                      <th *ngIf="isLLoggedIn">Update Operation</th>
+                      <th *ngIf="isLLoggedIn">Delete-Operation</th>
+                      <th *ngIf="isSLoggedIn">Issues Book</th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    style="background-image: url(https://cdn.pixabay.com/photo/2014/08/11/11/50/full-moon-415501__340.jpg);">
+                    <tr *ngFor="let book of bookService.books" style="color: rgb(239, 243, 7);" class="text-center">
+                      <td>{{book.bookId}}</td>
+                      <td>{{book.bookName}}</td>
+                      <td>{{book.firstAuthor}}</td>
+                      <td>{{book.secondAuthor}}</td>
+                      <td>{{book.publisher}}</td>
+                      <td>{{book.yearOfPublication}}</td>
+                      <td *ngIf="isLLoggedIn"><button type="button" class="btn btn-outline-warning btn-block"
+                        data-toggle="modal" (click)="selectBook(book)"
+                        data-target="#modal">Update</button>
+                    </td>
+                      <td *ngIf="isLLoggedIn"><button class="btn btn-outline-danger btn-blockr" (click)="deleteBook(book)">Delete</button></td>
+                      <td *ngIf="isSLoggedIn"><button class="btn btn-outline-success btn-blockr" (click)="requestBook(book)">Issue Book</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalLabel">Update Book</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" #updateForm="ngForm" (ngSubmit)="updateBook(updateForm)" method="PUT"
+                        role="form">
+                        <div class="form-group mt-2">
+                            <label for="bookId">ID<h6 class="text-danger float-right ">*</h6></label>
+                            <input readonly name="bookId" #bookId="ngModel" 
+                            [(ngModel)]='selectedBook.bookId'>
+                        </div>
+                        
+                        <div class="form-group mt-2">
+                            <label for="bookName">Name<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="text" name="bookName" required placeholder="Enter Book Name" class="form-control"
+                                #bookName="ngModel" [(ngModel)]="selectedBook.bookName">
+                                <div *ngIf="bookName.invalid && bookName.touched">
+                                    <p *ngIf="bookName.errors.required" class="text-danger">
+                                        *This field is mandatory
+                                </div>
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <label for="firstAuthor">First Author<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="text" name="firstAuthor" required placeholder="Enter First Author" class="form-control"
+                                #firstAuthor="ngModel" [(ngModel)]="selectedBook.firstAuthor">
+                                <div *ngIf="firstAuthor.invalid && firstAuthor.touched">
+                                    <p *ngIf="firstAuthor.errors.required" class="text-danger">
+                                        *This field is mandatory
+                                </div>
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <label for="secondAuthor">Second Author<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="text" name="secondAuthor" required placeholder="Enter Second Author" class="form-control"
+                                #secondAuthor="ngModel" [(ngModel)]="selectedBook.secondAuthor">
+                                <div *ngIf="secondAuthor.invalid && secondAuthor.touched">
+                                    <p *ngIf="secondAuthor.errors.required" class="text-danger">
+                                        *This field is mandatory
+                                </div>
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <label for="publisher">Publisher<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="text" name="publisher" required placeholder="Enter Author Name" class="form-control"
+                                #publisher="ngModel" [(ngModel)]="selectedBook.publisher">
+                                <div *ngIf="publisher.invalid && publisher.touched">
+                                    <p *ngIf="publisher.errors.required" class="text-danger">
+                                        *This field is mandatory
+                                </div>
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <label for="yearOfPublication">Year Of Publication<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="text" name="yearOfPublication" required placeholder="Enter Year Of Publication" class="form-control"
+                                #yearOfPublication="ngModel" [(ngModel)]="selectedBook.yearOfPublication">
+                                <div *ngIf="yearOfPublication.invalid && yearOfPublication.touched">
+                                    <p *ngIf="yearOfPublication.errors.required" class="text-danger">
+                                        *This field is mandatory
+                                </div>
+                        </div>
+
+                    
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="submit" [disabled]="updateForm.invalid" class="btn btn-primary">Save changes</button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+  </div>

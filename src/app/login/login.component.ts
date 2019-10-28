@@ -31,7 +31,7 @@ export class LoginComponent implements OnInit {
           console.log(response);
           alert('Librarian Logged Successfull Welcome ' + response.name);
           this.service.isLLoggedIn = true;
-          this.router.navigate(['/requestBook']);
+          this.router.navigate(['/requestedBook']);
         } else if (response != null && response.role === 'Student') {
           console.log(response);
           alert('Student Logged Successfull Welcome ' + response.name);

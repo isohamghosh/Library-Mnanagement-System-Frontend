@@ -7,9 +7,6 @@ import { LoginComponent } from './login/login.component';
 import { AddBooksComponent } from './add-books/add-books.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AddUserComponent } from './add-user/add-user.component';
-import { UpdateBookComponent } from './update-book/update-book.component';
-import { DeleteBookComponent } from './delete-book/delete-book.component';
-import { BookRequestComponent } from './book-request/book-request.component';
 import { SearchBookComponent } from './search-book/search-book.component';
 import { ResponseBookComponent } from './response-book/response-book.component';
 import { RequestedBookComponent } from './requested-book/requested-book.component';
@@ -23,9 +20,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'addUser', component: AddUserComponent },
   { path: 'addBook', component: AddBooksComponent },
-  { path: 'updateBook', component: UpdateBookComponent },
-  { path: 'deleteBook', component: DeleteBookComponent },
-  { path: 'requestBook', component: BookRequestComponent },
   { path: 'searchBook', component: SearchBookComponent },
   { path: 'requestedBook', component: RequestedBookComponent },
   { path: 'responseBook', component: ResponseBookComponent },
