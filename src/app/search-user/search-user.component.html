@@ -1,0 +1,100 @@
+<div>
+    <div class="card  text-black">
+      <img class="card-img" src="https://cdn.pixabay.com/photo/2017/07/18/23/40/group-2517459_960_720.png" alt="Card image"
+        style="border-style: none; border-width: 0px">
+      <div class="card-img-overlay">
+  
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <h4 class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
+                style="background-image: url(https://image.shutterstock.com/image-photo/black-cracked-texture-can-be-260nw-263213627.jpg); color: rgb(241, 229, 236);">
+                User Details</h4>
+              <div class="container ">
+                <table class="table table-bordered mt-2 table-hover table-striped"
+                  style="border-style: solid; border-width: 1px;">
+                  <thead
+                    style="background-image: url(https://cdn.pixabay.com/photo/2014/08/11/11/50/full-moon-415501__340.jpg);">
+                    <tr class="text-center text-warning">
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Email</th>
+                      <th>Update Operation</th>
+                      <th>Delete-Operation</th>
+                    </tr>
+                  </thead>
+                  <tbody
+                    style="background-image: url(https://cdn.pixabay.com/photo/2014/08/11/11/50/full-moon-415501__340.jpg);">
+                    <tr *ngFor="let user of userService.users" style="color: rgb(239, 243, 7);" class="text-center">
+                      <td>{{user.id}}</td>
+                      <td>{{user.name}}</td>
+                      <td>{{user.emailId}}</td>
+                      <td><button type="button" class="btn btn-outline-warning btn-block"
+                        data-toggle="modal" (click)="selectUser(user)"
+                        data-target="#modal">Update</button>
+                    </td>
+                      <td><button class="btn btn-outline-danger btn-blockr" (click)="deleteUser(user)">Delete</button></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="modalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="modalLabel">Update User</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                        <form action="" #updateForm="ngForm" (ngSubmit)="updateUser(updateForm)" method="PUT"
+                        role="form">
+                        <div class="form-group mt-2">
+                            <label for="id">ID<h6 class="text-danger float-right ">*</h6></label>
+                            <input readonly name="id" #id="ngModel" 
+                            [(ngModel)]='selectedUser.id'>
+                        </div>
+                        
+                        <div class="form-group mt-2">
+                            <label for="name">Name<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="text" name="name" required placeholder="Enter Your Name" class="form-control"
+                                #name="ngModel" [(ngModel)]="selectedUser.name">
+                                <div *ngIf="name.invalid && name.touched">
+                                    <p *ngIf="name.errors.required" class="text-danger">
+                                        *This field is mandatory
+                                </div>
+                        </div>
+
+                        <div class="form-group mt-2">
+                            <label for="emailId">Email<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="email" name="emailId" required placeholder="Enter Your Email" class="form-control"
+                                    #emailId="ngModel" [(ngModel)]="selectedUser.emailId">
+                                <div *ngIf="emailId.invalid && emailId.touched">
+                                    <p *ngIf="emailId.errors.required" class="text-danger">
+                                        *This field is mandatory
+                                </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="password" name="password" required placeholder="Enter Password"
+                                    class="form-control" #password="ngModel" ngModel>
+                                <div *ngIf="password.invalid && password.touched">
+                                    <p *ngIf="password.errors.required" class="text-danger">
+                                        *This field is mandatory
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                      <button type="submit" [disabled]="updateForm.invalid" class="btn btn-primary">Save changes</button>
+                        </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+      </div>
+    </div>
+  </div>

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
-import { LoginServiceService } from 'src/app/login.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth.service';
+import { LoginResponse } from '../login-response';
 
 @Component({
   selector: 'app-login',
@@ -10,33 +11,37 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  users = [];
-  constructor(private router: Router, private http: HttpClient, private loginService: LoginServiceService) { }
+
+  constructor(private service: AuthService,
+              private http: HttpClient,
+              private router: Router) { }
 
   ngOnInit() {
   }
 
   login(loginForm: NgForm) {
-    this.http.post<any>(`http://localhost:8080/login`, loginForm.value).subscribe(data => {
-      console.log(data.user.type);
-      this.users = data.user;
-      if (data.user.type === 'owner') {
-        alert('Login successfull');
-        this.loginService.isLibrarianLoggedIn = true;
-        this.router.navigateByUrl('/');
-      } else if (data.user.type === 'user') {
-        alert('Login successfull');
-        this.loginService.isStudentLoggedIn = true;
-        this.router.navigateByUrl('/');
-      } else if (data.user.type === 'admin') {
-        alert('Login successfull');
-        this.loginService.isAdminLoggedIn = true;
-        this.router.navigateByUrl('/');
-      } else {
-        alert('Invalid credential...! please enter valid credential');
-        loginForm.reset();
-      }
-    });
+    this.http.post<LoginResponse>(`http://localhost:8080/user/login`, loginForm)
+      .subscribe(response => {
+        if (response != null && response.role === 'Admin') {
+          console.log(response);
+          alert('Admin Logged Successfull Welcome ' + response.name);
+          this.service.isALoggedIn = true;
+          this.router.navigate(['/']);
+        } else if (response != null && response.role === 'Librarian') {
+          console.log(response);
+          alert('Librarian Logged Successfull Welcome ' + response.name);
+          this.service.isLLoggedIn = true;
+          this.router.navigate(['/requestBook']);
+        } else if (response != null && response.role === 'Student') {
+          console.log(response);
+          alert('Student Logged Successfull Welcome ' + response.name);
+          this.service.isSLoggedIn = true;
+          this.router.navigate(['/searchBook']);
+        } else {
+          console.log(response);
+          alert('Credentials invalid');
+        }
+      });
   }
 }
 

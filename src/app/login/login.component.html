@@ -1,24 +1,53 @@
-<div class="col-md-5 offset-md-4 mt-5 card float-left" style="background-color:transparent;">
-    <form>
-        <h4 class="text-light" align="center">Please Login here...!!!</h4>
-        <h6 class="text-danger float-right">*Required Fields</h6>
-        <div class="form-group">
-            <label for="userId" class="text-light">User Id</label>
-            <input type="number" #userId="ngModel" ngModel name="userId" id="userId" class="form-control" required
-                placeholder="Enter User Id">
-            <div *ngIf="userId.touched && userId.invalid">
-                <p class="alert alert-danger"> *This field is required</p>
+<div class="card  text-black">
+    <img class="card-img" src="https://cdn.pixabay.com/photo/2017/08/06/22/01/books-2596809_960_720.jpg"
+        alt="Card image" style="border-style: none; border-width: 0px " height="480px" width="420px">
+    <div class="card-img-overlay">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="col-md-4 offset-md-4 mt-4 mb-4 card card-body"
+                        style="background: rgba(243, 246, 247, 0.897)">
+                        <h3 class="sign-up-title font-weight-bolder font-italic"
+                            style="color:dimgray; text-align: center">Please Log in</h3>
+                        <h6 class="text-danger float-right">*Required fields</h6>
+                        <hr class="clorograph">
+
+                        <form action="" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" method="POST"
+                            role="form">
+
+                            <div class="form-group mt-2">
+                                <label for="id">ID<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="number" name="id" required placeholder="Enter Your ID" class="form-control"
+                                    #id="ngModel" ngModel>
+                                <div *ngIf="id.invalid && id.touched">
+                                    <p *ngIf="id.errors.required" class="text-danger">
+                                        *This field is mandatory
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="password">Password<h6 class="text-danger float-right ">*</h6></label>
+                                <input type="password" name="password" required placeholder="Enter Password"
+                                    class="form-control" #password="ngModel" ngModel>
+                                <div *ngIf="password.invalid && password.touched">
+                                    <p *ngIf="password.errors.required" class="text-danger">
+                                        *This field is mandatory
+                                </div>
+                            </div>
+
+                            <div class="checkbox" style="width:140px;">
+                                <label><input name="remember" type="checkbox" value="Remember Me"> Remember
+                                    Me</label>
+                            </div>
+
+                            <div class="form-group">
+                                <button type="submit" [disabled]="loginForm.invalid"
+                                    class="btn btn-outline-success float-right">Login</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <div class="form-group">
-            <label for="password" class="text-light">User Password
-            </label>
-            <input type="password" name="userPassword" id="userPassword" #userPassword="ngModel" ngModel
-                class="form-control" required placeholder="Enter User Password">
-            <div *ngIf="userPassword.touched && userPassword.invalid">
-                <p class="alert alert-danger"> This field is required</p>
-            </div>
-        </div>
-        <button type="submit" class="btn btn-primary float-right" [disabled]="login.invalid">Login </button>
-    </form>
+    </div>
 </div>

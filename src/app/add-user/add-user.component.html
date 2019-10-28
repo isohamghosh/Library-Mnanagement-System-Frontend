@@ -1,0 +1,73 @@
+<div style="background-image:url('/assets/images/DoctorImage.jpg'); background-size: cover; height:px ">
+
+    <div class="card  text-black">
+        <img class="card-img" src="https://cdn.pixabay.com/photo/2018/03/21/07/16/learning-3245793_960_720.jpg"
+            alt="Card image" style="border-style: none; border-width: 0px" height="750px" width="420px">
+        <div class="card-img-overlay">
+
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="col-md-4 offset-md-4 mt-5 mb-4 card card-body"
+                            style="background:rgba(243, 246, 247, 0.897)">
+                            <h3 class="sign-up-title font-weight-bolder font-italic"
+                                style="color:dimgray; text-align: center">Add Librarian</h3>
+                            <h6 class="text-danger float-right">*Required fields</h6>
+                            <hr class="clorograph">
+                            <!-- </div> -->
+                            <form action="" #registerForm="ngForm" (ngSubmit)="onRegister(registerForm)" method="POST"
+                                role="form">
+
+                                <div class="form-group mt-2">
+                                    <label for="id">ID<h6 class="text-danger float-right ">*</h6></label>
+                                    <input type="number" name="id" required placeholder="Enter Your ID" class="form-control"
+                                        #id="ngModel" ngModel>
+                                    <div *ngIf="id.invalid && id.touched">
+                                        <p *ngIf="id.errors.required" class="text-danger">
+                                            *This field is mandatory
+                                    </div>
+                                </div>
+
+                                <div class="form-group mt-2">
+                                    <label for="name">Name<h6 class="text-danger float-right ">*</h6></label>
+                                    <input type="text" name="name" required placeholder="Enter Your Name" class="form-control"
+                                        #name="ngModel" ngModel>
+                                    <div *ngIf="name.invalid && name.touched">
+                                        <p *ngIf="name.errors.required" class="text-danger">
+                                            *This field is mandatory
+                                    </div>
+                                </div>
+                                
+                                <div class="form-group mt-2">
+                                    <label for="emailId">Email<h6 class="text-danger float-right ">*</h6></label>
+                                    <input type="email" name="emailId" required placeholder="Enter Your Email" class="form-control"
+                                        #emailId="ngModel" ngModel>
+                                    <div *ngIf="emailId.invalid && emailId.touched">
+                                        <p *ngIf="emailId.errors.required" class="text-danger">
+                                            *This field is mandatory
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="password">Password<h6 class="text-danger float-right ">*</h6></label>
+                                    <input type="password" name="password" required placeholder="Enter Password"
+                                        class="form-control" #password="ngModel" ngModel>
+                                    <div *ngIf="password.invalid && password.touched">
+                                        <p *ngIf="password.errors.required" class="text-danger">
+                                            *This field is mandatory
+                                    </div>
+                                </div>
+                    
+                    <div class="btn-group float-right">
+                        <button type="submit" [disabled]="registerForm.invalid"
+                            class="btn btn-outline-success ">Register
+                        </button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>

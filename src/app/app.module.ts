@@ -10,12 +10,16 @@ import { LoginComponent } from './login/login.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule} from '@angular/forms';
 import { HttpClientModule} from '@angular/common/http';
-import { AddStudentComponent } from './add-student/add-student.component';
-import { AddLibrarienComponent } from './add-librarien/add-librarien.component';
-import { DeleteStudentComponent } from './delete-student/delete-student.component';
-import { DeleteLibrarianComponent } from './delete-librarian/delete-librarian.component';
-import { GetAllBooksComponent } from './get-all-books/get-all-books.component';
 import { AddBooksComponent } from './add-books/add-books.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { UpdateBookComponent } from './update-book/update-book.component';
+import { DeleteBookComponent } from './delete-book/delete-book.component';
+import { BookRequestComponent } from './book-request/book-request.component';
+import { SearchBookComponent } from './search-book/search-book.component';
+import { RequestedBookComponent } from './requested-book/requested-book.component';
+import { ResponseBookComponent } from './response-book/response-book.component';
+import { SearchUserComponent } from './search-user/search-user.component';
 
 @NgModule({
   declarations: [
@@ -24,12 +28,16 @@ import { AddBooksComponent } from './add-books/add-books.component';
     FooterComponent,
     HomeComponent,
     LoginComponent,
-    AddStudentComponent,
-    AddLibrarienComponent,
-    DeleteStudentComponent,
-    DeleteLibrarianComponent,
-    GetAllBooksComponent,
-    AddBooksComponent
+    AddBooksComponent,
+    PageNotFoundComponent,
+    AddUserComponent,
+    UpdateBookComponent,
+    DeleteBookComponent,
+    BookRequestComponent,
+    SearchBookComponent,
+    RequestedBookComponent,
+    ResponseBookComponent,
+    SearchUserComponent
   ],
   imports: [
     BrowserModule,

@@ -4,21 +4,34 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { LoginComponent } from './login/login.component';
-import { AddStudentComponent } from './add-student/add-student.component';
-import { AddLibrarienComponent } from './add-librarien/add-librarien.component';
-import { GetAllBooksComponent } from './get-all-books/get-all-books.component';
 import { AddBooksComponent } from './add-books/add-books.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AddUserComponent } from './add-user/add-user.component';
+import { UpdateBookComponent } from './update-book/update-book.component';
+import { DeleteBookComponent } from './delete-book/delete-book.component';
+import { BookRequestComponent } from './book-request/book-request.component';
+import { SearchBookComponent } from './search-book/search-book.component';
+import { ResponseBookComponent } from './response-book/response-book.component';
+import { RequestedBookComponent } from './requested-book/requested-book.component';
+import { SearchUserComponent } from './search-user/search-user.component';
 
 
 const routes: Routes = [
-  { path:'',component:HomeComponent},
-  { path:'header',component:HeaderComponent},
-  { path:'footer',component:FooterComponent},
-  { path:'login',component:LoginComponent},
-  { path: 'add-student',component:AddStudentComponent},
-  { path: 'add-librarien',component:AddLibrarienComponent},
-  { path: 'get-all-books',component:GetAllBooksComponent},
-  { path: 'add-books',component:AddBooksComponent}
+  { path: '', component: HomeComponent },
+  { path: 'header', component: HeaderComponent },
+  { path: 'footer', component: FooterComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'addUser', component: AddUserComponent },
+  { path: 'addBook', component: AddBooksComponent },
+  { path: 'updateBook', component: UpdateBookComponent },
+  { path: 'deleteBook', component: DeleteBookComponent },
+  { path: 'requestBook', component: BookRequestComponent },
+  { path: 'searchBook', component: SearchBookComponent },
+  { path: 'requestedBook', component: RequestedBookComponent },
+  { path: 'responseBook', component: ResponseBookComponent },
+  { path: 'searchUser', component: SearchUserComponent },
+
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

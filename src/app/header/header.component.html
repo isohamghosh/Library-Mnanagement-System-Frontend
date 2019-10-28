@@ -1,41 +1,65 @@
-<nav class="navbar navbar-expand-sm navbar-light bg-info">
-    <a class="navbar-brand" href="#">Library Management System</a>
-    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
-        aria-expanded="false" aria-label="Toggle navigation">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0f2862">
+    <a class="navbar-brand" routerLink="">
+        <h2 class="font-weight-bolder font-italic" style="color: #FFFFFF">Library Management</h2>
+    </a>
+    <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+        aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+
             <li class="nav-item active">
-                <a class="nav-link" routerLink="/">Home</a>
+                <a class="nav-link font-weight-bolder" routerLink="/">Home</a>
             </li>
-            <li class="nav-item active" *ngIf="isLibrarianLogin">
-                <a class="nav-link" routerLink="/get-all-books">List Of Books</a>
+            <li class="nav-item active" *ngIf="isALoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/addUser">Add Librarian</a>
             </li>
-            <li class="nav-item active" *ngIf="isLibrarianLogin">
-                <a class="nav-link" routerLink="/add-books">Add Books</a>
+    
+            <li class="nav-item active" *ngIf="isALoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/searchUser">Search Librarian</a>
             </li>
-            <li class="nav-item active" *ngIf="isAdminLogin">
-                <a class="nav-link" routerLink="/add-librarien">Add Librarian</a>
+
+            <li class="nav-item active" *ngIf="isLLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/addUser">Add Student</a>
             </li>
-            <li class="nav-item active" *ngIf="isLibrarianLogin">
-                <a class="nav-link" routerLink="/add-student">Add Student</a>
+            <li class="nav-item active" *ngIf="isLLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/searchUser">Search Student</a>
             </li>
+            
+            <li class="nav-item active" *ngIf="isLLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/addBook">Add Book</a>
+            </li>
+            <li class="nav-item active" *ngIf="isLLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/updateBook">Update Book</a>
+            </li>
+            <li class="nav-item active" *ngIf="isLLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/deleteBook">Delete Book</a>
+            </li>
+            <li class="nav-item active" *ngIf="isLLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/requestBook">Requeste Book</a>
+            </li>
+
+            <li class="nav-item active" *ngIf="isSLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/searchBook">Search Book</a>
+            </li>
+            <li class="nav-item active" *ngIf="isSLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/requestedBook">Requested Book</a>
+            </li>
+            <li class="nav-item active" *ngIf="isSLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/responseBook">Response Book</a>
+            </li>
+
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="text" placeholder="Search Book">
-            <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
-     
-    </div>
-    <div>
-        <ul class="navbar-nav mt-2 ">
-            <li class="nav-item active" *ngIf="!isAdminLogin && !isOwnerLogin && !isCustomerLogin">
-                <a class="nav-link float-left text-light" routerLink="login">SignIn </a>
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-2">
+            <li class="nav-item active" *ngIf="!isALoggedIn && !isLLoggedIn && !isSLoggedIn">
+                <a class="nav-link font-weight-bolder" routerLink="/login">Login </a>
             </li>
-            <li class="nav-item active" *ngIf="!isAdminLogin && !isOwnerLogin && !isCustomerLogin">
-                <a class="nav-link text-light" routerLink="login">Sign Out </a>
+            
+            <li class="nav-item active" *ngIf="isALoggedIn || isLLoggedIn || isSLoggedIn">
+                <button type="button" class="btn btn-primary font-weight-bolder" (click)="logout()">Logout</button>
             </li>
+
         </ul>
     </div>
 </nav>
