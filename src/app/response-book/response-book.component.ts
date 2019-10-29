@@ -19,7 +19,9 @@ export class ResponseBookComponent implements OnInit {
   returnBook(books) {
       this.http.get(`http://localhost:8080/student/returnBook/${books.transactionId}`).subscribe(response => {
           if (response > 0) {
-            alert(`Your fine${response}`);
+            alert(`Your fine is ${response}`);
+          } else {
+            alert('No Fine');
           }
         });
   }

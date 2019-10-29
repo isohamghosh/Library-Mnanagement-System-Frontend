@@ -33,6 +33,10 @@ export class SearchBookComponent implements OnInit {
     this.selectedBook = book;
   }
 
+  searchBook(book) {
+    this.bookService.getBook(book);
+  }
+
   updateBook(updateForm: NgForm) {
     console.log(updateForm.value);
     this.http.put('http://localhost:8080/librarian/updateBook', updateForm.value).subscribe(response => {
