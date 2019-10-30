@@ -2,7 +2,7 @@
 
     <div class="card  text-black">
         <img class="card-img" src="https://cdn.pixabay.com/photo/2016/01/27/04/32/books-1163695_960_720.jpg"
-            alt="Card image" style="border-style: none; border-width: 0px" height="800px" width="420px">
+            alt="Card image" style="border-style: none; border-width: 0px" height="850px" width="420px">
         <div class="card-img-overlay">
 
             <div class="container">
@@ -82,7 +82,7 @@
                                     <div *ngIf="yearOfPublication.invalid && yearOfPublication.touched">
                                         <p *ngIf="yearOfPublication.errors.required" class="text-danger">
                                             *This field is mandatory
-                                            <p *ngIf="yearOfPublication.errors.minlength && yearOfPublication.errors.maxlength" class="text-danger">
+                                            <p *ngIf="yearOfPublication.errors.minlength || yearOfPublication.errors.maxlength" class="text-danger">
                                                 *This field accept 4 charecters
                                     </div>
                                 </div>

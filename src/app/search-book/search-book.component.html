@@ -10,10 +10,12 @@
       <div class="container">
         <div class="row">
           <div class="col">
-            <h4 *ngIf="books" class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
+            <h4 *ngIf="!books"
+              class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
               style="background-image: url(https://image.shutterstock.com/image-photo/black-cracked-texture-can-be-260nw-263213627.jpg); color: rgb(241, 229, 236);">
               Book Details</h4>
-              <h4 *ngIf="!books" class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
+            <h4 *ngIf="books"
+              class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
               style="background-image: url(https://image.shutterstock.com/image-photo/black-cracked-texture-can-be-260nw-263213627.jpg); color: rgb(241, 229, 236);">
               No Record Found</h4>
             <div class="container ">
@@ -21,7 +23,7 @@
                 style="border-style: solid; border-width: 1px;">
                 <thead
                   style="background-image: url(https://cdn.pixabay.com/photo/2014/08/11/11/50/full-moon-415501__340.jpg);">
-                  <tr class="text-center text-warning" *ngIf="books">
+                  <tr class="text-center text-warning" *ngIf="!books">
                     <th>Book Id</th>
                     <th>Book Name</th>
                     <th>Author1</th>
@@ -74,51 +76,63 @@
 
                 <div class="form-group mt-2">
                   <label for="bookName">Name<h6 class="text-danger float-right ">*</h6></label>
-                  <input type="text" name="bookName" required placeholder="Enter Book Name" class="form-control"
-                    #bookName="ngModel" [(ngModel)]="selectedBook.bookName">
+                  <input type="text" name="bookName" required minlength="3" placeholder="Enter Book Name"
+                    class="form-control" #bookName="ngModel" [(ngModel)]="selectedBook.bookName">
                   <div *ngIf="bookName.invalid && bookName.touched">
                     <p *ngIf="bookName.errors.required" class="text-danger">
                       *This field is mandatory
+                      <p *ngIf="bookName.errors.minlength" class="text-danger">
+                        *This field accept min 3 charecters
                   </div>
                 </div>
 
                 <div class="form-group mt-2">
                   <label for="firstAuthor">First Author<h6 class="text-danger float-right ">*</h6></label>
-                  <input type="text" name="firstAuthor" required placeholder="Enter First Author" class="form-control"
-                    #firstAuthor="ngModel" [(ngModel)]="selectedBook.firstAuthor">
+                  <input type="text" name="firstAuthor" required minlength="3" placeholder="Enter First Author"
+                    class="form-control" #firstAuthor="ngModel" [(ngModel)]="selectedBook.firstAuthor">
                   <div *ngIf="firstAuthor.invalid && firstAuthor.touched">
                     <p *ngIf="firstAuthor.errors.required" class="text-danger">
                       *This field is mandatory
+                      <p *ngIf="firstAuthor.errors.minlength" class="text-danger">
+                        *This field accept min 3 charecters
                   </div>
                 </div>
 
                 <div class="form-group mt-2">
                   <label for="secondAuthor">Second Author<h6 class="text-danger float-right ">*</h6></label>
-                  <input type="text" name="secondAuthor" required placeholder="Enter Second Author" class="form-control"
-                    #secondAuthor="ngModel" [(ngModel)]="selectedBook.secondAuthor">
+                  <input type="text" name="secondAuthor" required minlength="3" placeholder="Enter Second Author"
+                    class="form-control" #secondAuthor="ngModel" [(ngModel)]="selectedBook.secondAuthor">
                   <div *ngIf="secondAuthor.invalid && secondAuthor.touched">
                     <p *ngIf="secondAuthor.errors.required" class="text-danger">
                       *This field is mandatory
+                      <p *ngIf="secondAuthor.errors.minlength" class="text-danger">
+                        *This field accept min 3 charecters
                   </div>
                 </div>
 
                 <div class="form-group mt-2">
                   <label for="publisher">Publisher<h6 class="text-danger float-right ">*</h6></label>
-                  <input type="text" name="publisher" required placeholder="Enter Author Name" class="form-control"
-                    #publisher="ngModel" [(ngModel)]="selectedBook.publisher">
+                  <input type="text" name="publisher" required minlength="3" placeholder="Enter Author Name"
+                    class="form-control" #publisher="ngModel" [(ngModel)]="selectedBook.publisher">
                   <div *ngIf="publisher.invalid && publisher.touched">
                     <p *ngIf="publisher.errors.required" class="text-danger">
                       *This field is mandatory
+                      <p *ngIf="publisher.errors.minlength" class="text-danger">
+                        *This field accept min 3 charecters
                   </div>
                 </div>
 
                 <div class="form-group mt-2">
                   <label for="yearOfPublication">Year Of Publication<h6 class="text-danger float-right ">*</h6></label>
-                  <input type="text" name="yearOfPublication" required placeholder="Enter Year Of Publication"
-                    class="form-control" #yearOfPublication="ngModel" [(ngModel)]="selectedBook.yearOfPublication">
+                  <input type="text" name="yearOfPublication" required minlength="4"
+                    placeholder="Enter Year Of Publication" class="form-control" #yearOfPublication="ngModel"
+                    [(ngModel)]="selectedBook.yearOfPublication">
                   <div *ngIf="yearOfPublication.invalid && yearOfPublication.touched">
                     <p *ngIf="yearOfPublication.errors.required" class="text-danger">
                       *This field is mandatory
+                      <p *ngIf="yearOfPublication.errors.minlength || yearOfPublication.errors.maxlength"
+                        class="text-danger">
+                        *This field accept 4 charecters
                   </div>
                 </div>
 

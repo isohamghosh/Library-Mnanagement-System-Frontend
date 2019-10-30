@@ -24,7 +24,7 @@ export class AddUserComponent implements OnInit {
       this.http.post('http://localhost:8080/admin/addLibrarian', registerForm.value).subscribe(response => {
         registerForm.reset();
         if (response) {
-          alert('Librarian Register Successfully');
+          alert('Librarian Added Successfully');
         } else {
           alert('Not registered please check the given details');
         }
@@ -36,7 +36,7 @@ export class AddUserComponent implements OnInit {
       this.http.post('http://localhost:8080/librarian/addStudent', registerForm.value).subscribe(response => {
         registerForm.reset();
         if (response) {
-          alert('Student Register Successfully');
+          alert('Student Added Successfully');
         }
       }, err => {
         alert('Not registered please check the given details');

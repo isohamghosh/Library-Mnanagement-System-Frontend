@@ -23,6 +23,8 @@ export class AddBooksComponent implements OnInit {
         if (response) {
           alert('Book Added');
         }
+      }, err => {
+        alert('Book not added please check details');
       });
   }
 
