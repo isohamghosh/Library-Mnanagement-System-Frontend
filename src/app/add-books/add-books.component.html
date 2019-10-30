@@ -29,51 +29,61 @@
 
                                 <div class="form-group mt-2">
                                     <label for="bookName">Name<h6 class="text-danger float-right ">*</h6></label>
-                                    <input type="text" name="bookName" required placeholder="Enter Book Name" class="form-control"
+                                    <input type="text" name="bookName" required minlength="3" placeholder="Enter Book Name" class="form-control"
                                         #bookName="ngModel" ngModel>
                                     <div *ngIf="bookName.invalid && bookName.touched">
                                         <p *ngIf="bookName.errors.required" class="text-danger">
                                             *This field is mandatory
+                                            <p *ngIf="bookName.errors.minlength" class="text-danger">
+                                                *This field accept min 3 charecters
                                     </div>
                                 </div>
                                 
                                 <div class="form-group mt-2">
                                     <label for="firstAuthor">First Author Name<h6 class="text-danger float-right ">*</h6></label>
-                                    <input type="text" name="firstAuthor" required placeholder="Enter First Author Name" class="form-control"
+                                    <input type="text" name="firstAuthor" required minlength="3" placeholder="Enter First Author Name" class="form-control"
                                         #firstAuthor="ngModel" ngModel>
                                     <div *ngIf="firstAuthor.invalid && firstAuthor.touched">
                                         <p *ngIf="firstAuthor.errors.required" class="text-danger">
                                             *This field is mandatory
+                                            <p *ngIf="firstAuthor.errors.minlength" class="text-danger">
+                                                *This field accept min 3 charecters
                                     </div>
                                 </div>
 
                                 <div class="form-group mt-2">
                                     <label for="secondAuthor">Second Author Name<h6 class="text-danger float-right ">*</h6></label>
-                                    <input type="text" name="secondAuthor" required placeholder="Enter second Author Name" class="form-control"
+                                    <input type="text" name="secondAuthor" required minlength="3" placeholder="Enter second Author Name" class="form-control"
                                         #secondAuthor="ngModel" ngModel>
                                     <div *ngIf="secondAuthor.invalid && secondAuthor.touched">
                                         <p *ngIf="secondAuthor.errors.required" class="text-danger">
                                             *This field is mandatory
+                                            <p *ngIf="secondAuthor.errors.minlength" class="text-danger">
+                                                *This field accept min 3 charecters
                                     </div>
                                 </div>
 
                                 <div class="form-group mt-2">
                                     <label for="publisher">Publisher Name<h6 class="text-danger float-right ">*</h6></label>
-                                    <input type="text" name="publisher" required placeholder="Enter second Author Name" class="form-control"
+                                    <input type="text" name="publisher" required minlength="3" placeholder="Enter second Author Name" class="form-control"
                                         #publisher="ngModel" ngModel>
                                     <div *ngIf="publisher.invalid && publisher.touched">
                                         <p *ngIf="publisher.errors.required" class="text-danger">
                                             *This field is mandatory
+                                            <p *ngIf="publisher.errors.minlength" class="text-danger">
+                                                *This field accept min 3 charecters
                                     </div>
                                 </div>
 
                                 <div class="form-group mt-2">
                                     <label for="yearOfPublication">Year Of Publication<h6 class="text-danger float-right ">*</h6></label>
-                                    <input type="text" name="yearOfPublication" required placeholder="Enter second Author Name" class="form-control"
+                                    <input type="text" name="yearOfPublication" required minlength="4" maxlength="4" placeholder="Enter second Author Name" class="form-control"
                                         #yearOfPublication="ngModel" ngModel>
                                     <div *ngIf="yearOfPublication.invalid && yearOfPublication.touched">
                                         <p *ngIf="yearOfPublication.errors.required" class="text-danger">
                                             *This field is mandatory
+                                            <p *ngIf="yearOfPublication.errors.minlength && yearOfPublication.errors.maxlength" class="text-danger">
+                                                *This field accept 4 charecters
                                     </div>
                                 </div>
 

@@ -25,7 +25,11 @@ export class AddUserComponent implements OnInit {
         registerForm.reset();
         if (response) {
           alert('Librarian Register Successfully');
+        } else {
+          alert('Not registered please check the given details');
         }
+      }, err => {
+        alert('Not registered please check the given details');
       });
     } else if (this.service.isLibrarianLoggedIn()) {
       console.log(registerForm.value);
@@ -34,6 +38,8 @@ export class AddUserComponent implements OnInit {
         if (response) {
           alert('Student Register Successfully');
         }
+      }, err => {
+        alert('Not registered please check the given details');
       });
     }
   }

@@ -7,10 +7,10 @@
         <div class="container">
           <div class="row">
             <div class="col">
-              <h4 *ngIf="userService.users != null" class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
+              <h4 *ngIf="users" class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
                 style="background-image: url(https://image.shutterstock.com/image-photo/black-cracked-texture-can-be-260nw-263213627.jpg); color: rgb(241, 229, 236);">
                 User Details</h4>
-                <h4 *ngIf="userService.users == null" class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
+                <h4 *ngIf="!users" class=" card card-body col-md-4 offset-md-4 text-center mt-4 font-weight-bolder font-italic"
                 style="background-image: url(https://image.shutterstock.com/image-photo/black-cracked-texture-can-be-260nw-263213627.jpg); color: rgb(241, 229, 236);">
                 No Record Found</h4>
               <div class="container ">
@@ -18,7 +18,7 @@
                   style="border-style: solid; border-width: 1px;">
                   <thead
                     style="background-image: url(https://cdn.pixabay.com/photo/2014/08/11/11/50/full-moon-415501__340.jpg);">
-                    <tr class="text-center text-warning" *ngIf="userService.users != null">
+                    <tr class="text-center text-warning" *ngIf="users">
                       <th>ID</th>
                       <th>Name</th>
                       <th>Email</th>

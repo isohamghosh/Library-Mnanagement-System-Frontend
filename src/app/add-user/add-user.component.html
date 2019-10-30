@@ -19,8 +19,8 @@
 
                                 <div class="form-group mt-2">
                                     <label for="id">ID<h6 class="text-danger float-right ">*</h6></label>
-                                    <input type="number" name="id" required placeholder="Enter Your ID" class="form-control"
-                                        #id="ngModel" ngModel>
+                                    <input type="number" name="id" required placeholder="Enter Your ID"
+                                        class="form-control" #id="ngModel" ngModel>
                                     <div *ngIf="id.invalid && id.touched">
                                         <p *ngIf="id.errors.required" class="text-danger">
                                             *This field is mandatory
@@ -29,44 +29,50 @@
 
                                 <div class="form-group mt-2">
                                     <label for="name">Name<h6 class="text-danger float-right ">*</h6></label>
-                                    <input type="text" name="name" required placeholder="Enter Your Name" class="form-control"
-                                        #name="ngModel" ngModel>
+                                    <input type="text" name="name" required minlength="5" placeholder="Enter Your Name"
+                                        class="form-control" #name="ngModel" ngModel>
                                     <div *ngIf="name.invalid && name.touched">
                                         <p *ngIf="name.errors.required" class="text-danger">
                                             *This field is mandatory
+                                            <p *ngIf="name.errors.minlength" class="text-danger">
+                                                *This field accept min 5 charecters
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group mt-2">
                                     <label for="emailId">Email<h6 class="text-danger float-right ">*</h6></label>
-                                    <input type="email" name="emailId" required placeholder="Enter Your Email" class="form-control"
-                                        #emailId="ngModel" ngModel>
+                                    <input type="email" name="emailId" required email placeholder="Enter Your Email"
+                                        class="form-control" #emailId="ngModel" ngModel>
                                     <div *ngIf="emailId.invalid && emailId.touched">
                                         <p *ngIf="emailId.errors.required" class="text-danger">
                                             *This field is mandatory
+                                            <p *ngIf="emailId.errors.email" class="text-danger">
+                                                *This field is only for email
                                     </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password">Password<h6 class="text-danger float-right ">*</h6></label>
-                                    <input type="password" name="password" required placeholder="Enter Password"
-                                        class="form-control" #password="ngModel" ngModel>
+                                    <input type="password" name="password" required minlength="5"
+                                        placeholder="Enter Password" class="form-control" #password="ngModel" ngModel>
                                     <div *ngIf="password.invalid && password.touched">
                                         <p *ngIf="password.errors.required" class="text-danger">
                                             *This field is mandatory
+                                            <p *ngIf="password.errors.minlength" class="text-danger">
+                                                *This field accept min 5 charecters
                                     </div>
                                 </div>
-                    
-                    <div class="btn-group float-right">
-                        <button type="submit" [disabled]="registerForm.invalid"
-                            class="btn btn-outline-success ">Add
-                        </button>
+
+                                <div class="btn-group float-right">
+                                    <button type="submit" [disabled]="registerForm.invalid"
+                                        class="btn btn-outline-success ">Add
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
                     </div>
-                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
-</div>
 </div>
